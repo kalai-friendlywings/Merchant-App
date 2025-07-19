@@ -1,0 +1,633 @@
+/* ===== Base Styles ===== */
+:root {
+  --primary-blue: #27548a;
+  --white: #ffffff;
+  --light-gray: #f8f9fa;
+  --medium-gray: #e9ecef;
+  --dark-gray: #6c757d;
+  --success-green: #198754;
+  --danger-red: #dc3545;
+  --warning-yellow: #ffc107;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 10px rgba(0, 0, 0, 0.15);
+  --shadow-lg: 0 10px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* ===== Sidebar Styles ===== */
+.sidebar {
+  width: 240px;
+  min-height: 100vh;
+  background-color: var(--primary-blue);
+  transition: transform 0.4s ease;
+}
+
+.sidebar-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1049;
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1050;
+    transform: translateX(-100%);
+  }
+
+  .sidebar.active {
+    transform: translateX(0);
+  }
+
+  .sidebar-overlay.active {
+    display: block;
+  }
+}
+
+/* Stats and Metrics */
+.stat-badge {
+  padding: 1.5rem;
+  border-radius: 10px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.stat-badge:hover {
+  transform: scale(1.03);
+}
+
+.stat-primary {
+  background-color: rgba(13, 110, 253, 0.1);
+  color: #0d6efd;
+}
+
+.stat-success {
+  background-color: rgba(25, 135, 84, 0.1);
+  color: var(--success-green);
+}
+
+.stat-warning {
+  background-color: rgba(255, 193, 7, 0.1);
+  color: var(--warning-yellow);
+}
+
+.stat-value {
+  font-size: 1.75rem;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.stat-label {
+  font-size: 0.875rem;
+  color: var(--dark-gray);
+}
+
+.metric-card .metric-title {
+  color: var(--dark-gray);
+  font-size: 0.875rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.metric-card .metric-value {
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+.metric-card .metric-title {
+  font-size: 0.95rem;
+  color: #444;
+}
+
+.metric-card .metric-value {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.metric-change {
+  display: flex;
+  align-items: center;
+  font-size: 0.875rem;
+  font-weight: 500;
+  gap: 4px;
+}
+
+.metric-change.up {
+  color: var(--success-green);
+}
+
+.metric-change.down {
+  color: var(--danger-red);
+}
+
+/* ===== Insights Section ===== */
+.insights-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.section-title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+  color: #333;
+}
+
+.section-subtitle {
+  color: var(--dark-gray);
+  font-size: 0.875rem;
+}
+
+/* Analytics Chart */
+.analytics-chart {
+  display: flex;
+  align-items: flex-end;
+  gap: 8px;
+  height: 150px;
+  margin-top: 1rem;
+}
+
+.chart-bar-container {
+  flex: 1;
+  height: 100%;
+  display: flex;
+  align-items: flex-end;
+}
+
+.chart-bar {
+  width: 100%;
+  background-color: #0d6efd;
+  border-radius: 4px 4px 0 0;
+  transition: height 0.5s ease;
+}
+
+.chart-labels {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 0.5rem;
+}
+
+.chart-label {
+  color: var(--dark-gray);
+  font-size: 0.75rem;
+  flex: 1;
+  text-align: center;
+}
+
+/* Products List */
+.products-list {
+  margin-top: 1rem;
+}
+
+.product-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--medium-gray);
+}
+
+.product-name {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 70%;
+}
+
+.product-sales {
+  color: var(--dark-gray);
+  font-weight: 600;
+}
+
+/* ===== Responsive Adjustments ===== */
+@media (max-width: 768px) {
+  .profile-section {
+    position: static;
+    transform: none;
+    margin-top: -50px;
+    margin-bottom: 20px;
+  }
+
+  .profile-banner-wrapper {
+    margin-bottom: 40px;
+  }
+
+  .banner-container {
+    height: 160px;
+  }
+
+  .stat-badge {
+    padding: 1rem;
+  }
+
+  .analytics-chart {
+    height: 120px;
+  }
+
+  .product-item {
+    padding: 0.5rem 0;
+  }
+
+  .profile-img-container {
+    width: 80px;
+    height: 80px;
+  }
+
+  .store-name {
+    font-size: 1rem;
+  }
+
+  .welcome-text {
+    font-size: 0.8rem;
+  }
+
+  .banner-controls {
+    flex-direction: column;
+    width: 90%;
+    max-width: 300px;
+    bottom: 20px;
+  }
+
+  .close-btn {
+    top: 10px;
+    right: 10px;
+    width: 36px;
+    height: 36px;
+  }
+}
+
+@media (max-width: 576px) {
+  .profile-section {
+    max-width: 100%;
+  }
+  
+  .stat-badge {
+    padding: 0.75rem;
+  }
+  
+  .stat-value {
+    font-size: 1.5rem;
+  }
+}
+
+/* Products page css */
+/* For even more compact cards */
+@media (max-width: 768px) {
+  .product-card .card-img-container {
+    height: 150px;
+  }
+ 
+}
+
+/* Hover effects */
+.product-card:hover {
+  transform: translateY(-2px);
+  transition: transform 0.2s ease;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* General Layout Adjustments (ensure proper sizing) */
+.min-vh-100 {
+  min-height: 100vh;
+}
+
+/* Sidebar Styling */
+.sidebar {
+  width: 250px;
+  flex-shrink: 0; /* Prevent shrinking on larger screens */
+  transition: transform 0.3s ease-in-out;
+  background-color: #2c3e50; /* Darker primary for sidebar */
+  z-index: 1000; /* Ensure sidebar is above other content */
+}
+
+.sidebar .nav-link {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  font-size: 1.05rem;
+  color: #ecf0f1; /* Light text color */
+}
+
+.sidebar .nav-link:hover,
+.sidebar .nav-link.active {
+  background-color: #34495e; /* Slightly lighter on hover/active */
+  color: #fff;
+}
+
+.sidebar .nav-item {
+  margin-bottom: 0.5rem;
+}
+
+/* Mobile Sidebar Specifics */
+@media (max-width: 767.98px) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    transform: translateX(-100%);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  }
+  .sidebar.active {
+    transform: translateX(0%);
+  }
+  .sidebar-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+}
+
+/* Topbar Styling */
+header {
+  background-color: #ffffff;
+  border-bottom: 1px solid #e0e0e0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.75rem 1.5rem;
+}
+
+/* Main Content Area */
+main {
+  flex-grow: 1;
+  background-color: #f8f9fa;
+  overflow-y: auto; /* Enable scrolling for content if it overflows */
+}
+
+/* --- Notification Dropdown Styling --- */
+
+/* Bell Toggle */
+.notification-bell-toggle {
+  cursor: pointer;
+  padding: 0.5rem; /* Increased hit area */
+  border-radius: 50%; /* Make it round */
+  transition: background-color 0.2s ease-in-out;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.notification-bell-toggle:hover {
+  background-color: #f0f0f0; /* Light hover background */
+}
+
+/* Unread Notification Badge */
+.notification-badge {
+  position: absolute;
+  top: -5px; /* Adjust vertical position */
+  right: -5px; /* Adjust horizontal position */
+  background-color: #e74c3c; /* Red background for attention */
+  color: #fff;
+  font-size: 0.7rem;
+  padding: 0.2em 0.5em;
+  border-radius: 9999px; /* Fully rounded */
+  min-width: 20px; /* Ensure badge is always round */
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+}
+
+/* Dropdown Menu Itself */
+.notification-dropdown-menu {
+  border: none; /* Remove default border */
+  border-radius: 0.75rem; /* More rounded corners */
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15); /* Stronger shadow */
+  min-width: 350px !important; /* Fixed width for better appearance */
+  max-width: 90vw; /* Responsive: max width 90% of viewport */
+  max-height: 400px; /* Limit height to enable scrolling */
+  overflow-y: auto; /* Scroll for many notifications */
+  background-color: #ffffff; /* Solid white background */
+  padding: 0; /* Remove default padding */
+  font-family: 'Inter', sans-serif; /* Consistent font */
+}
+
+/* Dropdown Header */
+.notification-header {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #eeeeee; /* Light border */
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: 600;
+  background-color: #f9f9f9; /* Slightly different background */
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+}
+
+.notification-count-badge {
+  background-color: #3498db; /* Blue for count */
+  color: #fff;
+  padding: 0.2em 0.6em;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: normal; /* Less bold than main heading */
+}
+
+/* Individual Notification Item */
+.notification-item {
+  padding: 0.75rem 1.25rem;
+  border-bottom: 1px solid #f5f5f5; /* Very light separator */
+  transition: background-color 0.2s ease-in-out;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start; /* Align icon and text at the top */
+}
+
+.notification-item:last-child {
+  border-bottom: none; /* No border for the last item */
+}
+
+.notification-item:hover {
+  background-color: #f8f9fa; /* Light hover effect */
+}
+
+.notification-item-read {
+  background-color: #fcfcfc; /* Slightly muted background for read */
+  color: #6c757d; /* Muted text for read */
+  font-weight: normal;
+}
+
+.notification-item-unread {
+  background-color: #e8f0fe; /* Light blue background for unread */
+  color: #343a40; /* Stronger text for unread */
+  font-weight: 500; /* Slightly bolder for unread */
+}
+
+.notification-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem; /* Space between icon and text */
+}
+
+.notification-icon {
+  flex-shrink: 0;
+  padding-top: 2px; /* Align icon better with text */
+}
+
+.notification-message {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  word-wrap: break-word; /* Ensure long words wrap */
+  white-space: normal; /* Allow text to wrap naturally */
+}
+
+.notification-timestamp {
+  font-size: 0.75rem;
+  color: #999; /* Lighter color for timestamp */
+  margin-top: 0.25rem;
+  display: block; /* Ensure it takes its own line */
+}
+
+/* "Mark all as read" button in dropdown */
+.notification-mark-all-read-btn {
+  padding: 1rem 1.25rem;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #007bff; /* Primary blue color */
+  cursor: pointer;
+  border-top: 1px solid #eee; /* Separator from items */
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  border-bottom-left-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+}
+
+.notification-mark-all-read-btn:hover {
+  background-color: #e9ecef; /* Light gray on hover */
+  color: #0056b3; /* Darker blue on hover */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 575.98px) {
+  .notification-dropdown-menu {
+    min-width: unset !important; /* Remove fixed width on small screens */
+    width: 90vw; /* Make it nearly full width */
+    left: 50% !important; /* Center horizontally */
+    transform: translateX(-50%) !important; /* Adjust for half its width */
+    right: auto !important; /* Override any right alignment */
+    margin-right: auto !important; /* Override any margin */
+  }
+}
+
+/* Dropdown Header */
+.notification-header {
+  padding: 1rem 1.25rem;
+  border-bottom: 1px solid #eeeeee; /* Light border */
+  font-size: 1.1rem;
+  color: #333;
+  font-weight: 600;
+  background-color: #f9f9f9; /* Slightly different background */
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+}
+
+.notification-count-badge {
+  background-color: #3498db; /* Blue for count */
+  color: #fff;
+  padding: 0.2em 0.6em;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  font-weight: normal; /* Less bold than main heading */
+}
+
+/* Individual Notification Item */
+.notification-item {
+  padding: 0.75rem 1.25rem;
+  border-bottom: 1px solid #f5f5f5; /* Very light separator */
+  transition: background-color 0.2s ease-in-out;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-start; /* Align icon and text at the top */
+}
+
+.notification-item:last-child {
+  border-bottom: none; /* No border for the last item */
+}
+
+.notification-item:hover {
+  background-color: #f8f9fa; /* Light hover effect */
+}
+
+.notification-item-read {
+  background-color: #fcfcfc; /* Slightly muted background for read */
+  color: #6c757d; /* Muted text for read */
+  font-weight: normal;
+}
+
+.notification-item-unread {
+  background-color: #e8f0fe; /* Light blue background for unread */
+  color: #343a40; /* Stronger text for unread */
+  font-weight: 500; /* Slightly bolder for unread */
+}
+
+.notification-content {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem; /* Space between icon and text */
+}
+
+.notification-icon {
+  flex-shrink: 0;
+  padding-top: 2px; /* Align icon better with text */
+}
+
+.notification-message {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  word-wrap: break-word; /* Ensure long words wrap */
+  white-space: normal; /* Allow text to wrap naturally */
+}
+
+.notification-timestamp {
+  font-size: 0.75rem;
+  color: #999; /* Lighter color for timestamp */
+  margin-top: 0.25rem;
+  display: block; /* Ensure it takes its own line */
+}
+
+/* "Mark all as read" button in dropdown */
+.notification-mark-all-read-btn {
+  padding: 1rem 1.25rem;
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #007bff; /* Primary blue color */
+  cursor: pointer;
+  border-top: 1px solid #eee; /* Separator from items */
+  transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  border-bottom-left-radius: 0.75rem;
+  border-bottom-right-radius: 0.75rem;
+}
+
+.notification-mark-all-read-btn:hover {
+  background-color: #e9ecef; /* Light gray on hover */
+  color: #0056b3; /* Darker blue on hover */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 575.98px) {
+  .notification-dropdown-menu {
+    min-width: unset !important; /* Remove fixed width on small screens */
+    width: 90vw; /* Make it nearly full width */
+    left: 50% !important; /* Center horizontally */
+    transform: translateX(-50%) !important; /* Adjust for half its width */
+    right: auto !important; /* Override any right alignment */
+    margin-right: auto !important; /* Override any margin */
+  }
+}

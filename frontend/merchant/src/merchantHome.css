@@ -1,0 +1,63 @@
+.navbar-nav .nav-link {
+    margin-right: 15px;
+    transition: color 0.2s ease-in-out;
+  }
+  
+  .navbar-nav .nav-link:hover {
+    color: #0d6efd;
+  }
+  
+  .navbar-brand {
+    font-weight: 700;
+  }
+  
+.text-section h1 {
+    line-height: 1.3;
+  }
+  
+
+  .animated-merchant {
+   
+    max-width: 400px;
+    animation: float 3s ease-in-out infinite;
+  }
+  @media (max-width: 576px) {
+    .animated-merchant {
+      max-width: 300px;
+      padding-top: 20px;
+    }
+  }
+  
+  @keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+  }
+  
+  .merchant-steps-section {
+  background-color: #fff;
+}
+
+.step-box {
+  padding: 20px;
+}
+
+.step-number {
+  font-size: 48px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+form input::placeholder {
+  color: #999;
+  font-weight: 500;
+}
+
+/* Merchant Reg CSS */
+
+@media (max-width: 767px) {
+  .hide-on-mobile {
+    display: none !important;
+  }
+}
+
+/* Merchant Details style */

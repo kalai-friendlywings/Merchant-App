@@ -1,0 +1,7 @@
+@import 'leaflet/dist/leaflet.css';
+/* Leaflet default styles */
+.leaflet-container {
+    height: 300px;
+    width: 100%;
+  }
+  

@@ -1,0 +1,457 @@
+/* ProfileBanner.css */
+
+:root {
+  --primary-color: #667eea;
+  --secondary-color: #764ba2;
+  --text-color-dark: #333;
+  --text-color-medium: #666;
+  --text-color-light: #fff;
+  --background-light: #f8f9fa;
+  --border-color: #e0e0e0;
+  --shadow-light: rgba(0, 0, 0, 0.1);
+  --shadow-medium: rgba(0, 0, 0, 0.15);
+  --transition-speed: 0.3s;
+}
+
+.profile-banner-container {
+  position: relative;
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px var(--shadow-light);
+  margin-bottom: 2rem;
+  background: var(--text-color-light);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Added a modern font */
+}
+
+/* --- Banner Section --- */
+.banner-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 380px;
+  overflow: hidden;
+  cursor: pointer;
+  display: flex; /* Ensures content is centered vertically */
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background-light); /* Fallback/loading background */
+}
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block; /* Removes extra space below image */
+}
+
+.banner-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color-light);
+  font-size: 1.25rem; /* Slightly larger font */
+  font-weight: 500;
+  position: relative;
+  text-align: center;
+  padding: 15px; /* Added padding */
+}
+
+.banner-placeholder span {
+  position: relative; /* Brings text above overlay */
+  z-index: 1;
+}
+
+.banner-placeholder .gradient-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.15)); /* Slightly stronger overlay */
+}
+
+.banner-loading-spinner,
+.profile-spinner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.85); /* Slightly less transparent */
+  position: absolute; /* Ensures it covers the entire area */
+  top: 0;
+  left: 0;
+  z-index: 2; /* Above other elements when loading */
+}
+
+/* --- Banner Controls --- */
+.banner-controls {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  gap: 12px; /* Increased gap */
+  opacity: 0;
+  visibility: hidden; /* Added visibility for desktop hover */
+  transition: opacity var(--transition-speed) ease, visibility var(--transition-speed) ease, transform var(--transition-speed) ease;
+  z-index: 3; /* Ensures controls are clickable */
+}
+
+.banner-controls.visible {
+  opacity: 1;
+  visibility: visible; /* Show on desktop hover */
+  transform: translateY(0);
+}
+
+.banner-btn {
+  width: 44px; /* Slightly larger buttons */
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95); /* More opaque */
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color-dark);
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+  box-shadow: 0 3px 12px var(--shadow-light); /* Slightly stronger shadow */
+  font-size: 1.1rem; /* Icon size */
+}
+
+.banner-btn:hover {
+  background: var(--text-color-light);
+  transform: translateY(-3px); /* More pronounced lift */
+  box-shadow: 0 6px 20px var(--shadow-medium); /* Stronger hover shadow */
+  color: var(--primary-color); /* Highlight on hover */
+}
+
+/* Banner Controls - Mobile Specific */
+.banner-btn.mobile-upload-btn,
+.banner-btn.mobile-delete-btn {
+  position: absolute;
+  bottom: 15px;
+  width: 44px; /* Consistent size */
+  height: 44px;
+  opacity: 0;
+  visibility: hidden; /* Start hidden on mobile */
+  transform: translateY(15px); /* More pronounced slide-up */
+  transition: all var(--transition-speed) ease;
+  z-index: 3;
+}
+
+.banner-btn.mobile-upload-btn {
+  left: 15px;
+}
+
+.banner-btn.mobile-delete-btn {
+  right: 15px;
+}
+
+.banner-btn.mobile-upload-btn.visible,
+.banner-btn.mobile-delete-btn.visible {
+  opacity: 1;
+  visibility: visible; /* Show on mobile click */
+  transform: translateY(0);
+}
+
+/* --- Profile Section --- */
+.profile-details {
+  display: flex;
+  align-items: flex-end;
+  padding: 0 30px;
+  margin-top: -75px; /* Adjust to ensure good overlap with banner */
+  position: relative;
+  z-index: 1;
+}
+
+.profile-pic-container {
+  position: relative;
+  /* margin-right: 20px; Not needed if flex aligns items well */
+  /* Added for desktop hover detection */
+  /* No direct width/height here, it takes from children. */
+  /* This container needs to cover the full profile picture area + some space below if controls are there */
+  /* Ensure it has enough space to capture mouse events on controls */
+}
+
+.profile-pic-wrapper {
+  width: 160px; /* Slightly larger profile picture */
+  height: 160px;
+  border-radius: 50%;
+  border: 6px solid var(--text-color-light); /* Thicker, clean border */
+  background: var(--text-color-light);
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 8px 25px var(--shadow-light); /* Stronger shadow */
+  cursor: pointer;
+  transition: transform var(--transition-speed) ease;
+}
+
+.profile-pic-wrapper:hover {
+  transform: scale(1.02); /* Slight scale on hover for interaction */
+}
+
+.profile-pic {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.profile-pic-placeholder {
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, var(--background-light) 0%, var(--border-color) 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color-medium);
+  font-size: 3.2rem; /* Larger initial for better visibility */
+  font-weight: bold;
+}
+
+/* --- Profile Controls --- */
+.profile-pic-controls {
+  position: absolute;
+  bottom: 30px; /* Adjust for better positioning below the image (was -55px) */
+  left: 50%;
+  transform: translateX(-50%) translateY(15px); /* Start hidden, slide up */
+  display: flex;
+  justify-content: center;
+  gap: 25px; /* Increased gap */
+  opacity: 0;
+  visibility: hidden; /* Essential: Initially hidden on desktop */
+  transition: all var(--transition-speed) ease-out; /* Use ease-out for smoother reveal */
+  z-index: 2; /* Ensures controls are above other content */
+  /* Ensure it's not clipped by overflow hidden on wrapper if needed, though container should handle it */
+}
+
+.profile-pic-controls.visible {
+  opacity: 1;
+  visibility: visible; /* Show on desktop hover */
+  transform: translateX(-50%) translateY(0);
+}
+
+.profile-control-btn {
+  width: 42px; /* Consistent size with banner buttons */
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.95);
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color-dark);
+  cursor: pointer;
+  box-shadow: 0 2px 10px var(--shadow-light);
+  position: relative;
+  font-size: 1.05rem; /* Icon size */
+  transition: all var(--transition-speed) ease;
+}
+
+.profile-control-btn:hover {
+  background: var(--text-color-light);
+  transform: scale(1.15); /* More prominent scale on hover */
+  color: var(--primary-color);
+}
+
+.profile-control-btn .tooltip {
+  position: absolute;
+  bottom: 50px; /* Adjust tooltip position */
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--text-color-dark);
+  color: var(--text-color-light);
+  padding: 6px 12px; /* More padding */
+  border-radius: 6px; /* Slightly more rounded */
+  font-size: 0.85rem; /* Slightly larger font */
+  white-space: nowrap;
+  opacity: 0;
+  visibility: hidden; /* Use visibility for smooth show/hide */
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+  z-index: 10; /* Ensures tooltip is on top */
+  box-shadow: 0 2px 8px var(--shadow-light);
+}
+
+.profile-control-btn:hover .tooltip {
+  opacity: 1;
+  visibility: visible;
+}
+
+.profile-text {
+  margin-left: 40px; /* More space from profile picture */
+  margin-bottom: 15px; /* More bottom margin */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Vertically center text if possible */
+}
+
+.profile-text h4 {
+  font-size: 2.2rem; /* Larger heading */
+  margin: 0 0 8px 0; /* More margin */
+  color: var(--text-color-dark);
+  font-weight: 700; /* Bolder font */
+  line-height: 1.2;
+}
+
+.profile-text p {
+  font-size: 1.05rem; /* Slightly larger paragraph */
+  color: var(--text-color-medium);
+  margin: 0;
+  max-width: 650px; /* Increased max-width for better readability */
+  line-height: 1.5;
+}
+
+/* --- Mobile Responsiveness --- */
+@media (max-width: 768px) {
+  .profile-banner-container {
+    border-radius: 0; /* Full width on mobile */
+    box-shadow: none; /* Less prominent shadow on smaller screens */
+    margin-bottom: 1.5rem;
+  }
+
+  .banner-image-wrapper {
+    height: 180px; /* Reduced height for mobile banners */
+  }
+
+  .banner-placeholder {
+    font-size: 1rem; /* Adjust font size for mobile */
+    padding: 10px;
+  }
+
+  /* Mobile banner buttons become more prominent and fixed */
+  .banner-btn.mobile-upload-btn,
+  .banner-btn.mobile-delete-btn {
+    bottom: 10px; /* Closer to the bottom edge */
+    width: 40px; /* Slightly smaller buttons */
+    height: 40px;
+    font-size: 1rem;
+    box-shadow: 0 2px 8px var(--shadow-light);
+    /* Re-enable transitions for mobile banner controls */
+    transition: all var(--transition-speed) ease;
+  }
+
+  .banner-btn.mobile-upload-btn {
+    left: 10px;
+  }
+
+  .banner-btn.mobile-delete-btn {
+    right: 10px;
+  }
+
+  .banner-btn.mobile-upload-btn.visible,
+  .banner-btn.mobile-delete-btn.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .profile-details {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin-top: -60px; /* Adjusted for smaller profile pic */
+    padding: 0 15px;
+  }
+
+  .profile-pic-wrapper {
+    width: 110px; /* Smaller profile picture on mobile */
+    height: 110px;
+    border-width: 4px; /* Adjusted border width */
+    box-shadow: 0 4px 15px var(--shadow-light);
+  }
+
+  .profile-pic-placeholder {
+    font-size: 2.5rem; /* Adjusted placeholder font size */
+  }
+
+  .profile-text {
+    margin-left: 0;
+    margin-top: 20px; /* Smaller margin for mobile */
+    margin-bottom: 20px;
+    width: 100%;
+    padding: 0 10px; /* Add some horizontal padding */
+  }
+
+  .profile-text h4 {
+    font-size: 1.7rem; /* Smaller heading for mobile */
+    margin-bottom: 5px;
+  }
+
+  .profile-text p {
+    font-size: 0.95rem; /* Smaller paragraph for mobile */
+  }
+
+  /* Mobile Profile Controls - Start hidden, reveal on click */
+  .profile-pic-controls {
+    bottom: -40px; /* Keep controls visible below pic on mobile */
+    gap: 15px; /* Smaller gap */
+    transform: translateX(-50%) translateY(15px); /* Start hidden on mobile */
+    opacity: 0; /* Start hidden on mobile */
+    visibility: hidden; /* Start hidden on mobile */
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 8px;
+    padding: 8px 15px;
+    box-shadow: 0 2px 10px var(--shadow-light);
+    transition: all var(--transition-speed) ease-out; /* Re-enable transition for click reveal */
+  }
+
+  /* When 'visible' class is added via JS click */
+  .profile-pic-controls.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0); /* Slide into view */
+  }
+
+  .profile-control-btn {
+    width: 38px;
+    height: 38px;
+    font-size: 0.95rem;
+  }
+
+  .profile-control-btn .tooltip {
+    display: none; /* Hide tooltips on mobile */
+  }
+}
+
+/* Smaller mobile screens (e.g., iPhone SE) */
+@media (max-width: 480px) {
+  .banner-image-wrapper {
+    height: 150px;
+  }
+
+  .profile-details {
+    margin-top: -50px;
+  }
+
+  .profile-pic-wrapper {
+    width: 90px;
+    height: 90px;
+  }
+
+  .profile-pic-placeholder {
+    font-size: 2rem;
+  }
+
+  .profile-text h4 {
+    font-size: 1.4rem;
+  }
+
+  .profile-text p {
+    font-size: 0.9rem;
+  }
+
+  .profile-pic-controls {
+    bottom: -35px;
+    gap: 10px;
+  }
+
+  .profile-control-btn {
+    width: 34px;
+    height: 34px;
+  }
+}

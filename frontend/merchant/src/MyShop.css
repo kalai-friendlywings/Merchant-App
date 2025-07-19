@@ -1,0 +1,317 @@
+/* My Shop Page Styles */
+.my-shop-container {
+    background-color: #f8f9fa;
+  }
+  
+  /* Shop Banner */
+  .shop-banner {
+    position: relative;
+    height: 300px;
+    overflow: hidden;
+    background-color: #4c51bf;
+  }
+  
+  .banner-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  .banner-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+  }
+  
+  .shop-logo-container {
+    position: absolute;
+    bottom: -50px;
+    left: 50px;
+  }
+  
+  .shop-logo {
+    width: 150px;
+    height: 150px;
+    border: 5px solid white;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+  }
+  
+  /* Shop Header */
+  .shop-header {
+    position: relative;
+  }
+  
+  .shop-name {
+    font-weight: 700;
+    color: #2d3748;
+  }
+  
+  .shop-status {
+    font-size: 0.9rem;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-weight: 500;
+  }
+  
+  .shop-status.active {
+    background-color: #f0fff4;
+    color: #38a169;
+  }
+  
+  .shop-status.inactive {
+    background-color: #fff5f5;
+    color: #e53e3e;
+  }
+  
+  .shop-category {
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+  }
+  
+  .shop-description {
+    color: #4a5568;
+    line-height: 1.6;
+  }
+  
+  .edit-shop-btn {
+    border-radius: 8px;
+    padding: 10px 20px;
+    font-weight: 500;
+  }
+  
+  /* Tabs */
+  .shop-tabs .nav-link {
+    color: #718096;
+    font-weight: 500;
+    border: none;
+    padding: 12px 20px;
+    margin-right: 5px;
+  }
+  
+  .shop-tabs .nav-link.active {
+    color: #4c51bf;
+    border-bottom: 3px solid #4c51bf;
+    background-color: transparent;
+  }
+  
+  /* Cards */
+  .shop-details-card, 
+  .opening-hours-card, 
+  .quick-stats-card, 
+  .verification-card,
+  .settings-card,
+  .appearance-card,
+  .theme-card {
+    border: none;
+    border-radius: 12px;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    transition: transform 0.2s;
+  }
+  
+  .shop-details-card:hover, 
+  .opening-hours-card:hover, 
+  .quick-stats-card:hover, 
+  .verification-card:hover,
+  .settings-card:hover,
+  .appearance-card:hover,
+  .theme-card:hover {
+    transform: translateY(-2px);
+  }
+  
+  .card-title {
+    color: #2d3748;
+    font-weight: 600;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #edf2f7;
+  }
+  
+  /* Detail Items */
+  .detail-item {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  .detail-icon {
+    color: #4c51bf;
+    font-size: 1.2rem;
+    margin-right: 15px;
+    margin-top: 3px;
+  }
+  
+  .detail-item h6 {
+    color: #718096;
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+    font-weight: 600;
+  }
+  
+  .detail-item p {
+    color: #2d3748;
+    margin-bottom: 0;
+  }
+  
+  /* Opening Hours */
+  .hour-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 0;
+    border-bottom: 1px solid #edf2f7;
+  }
+  
+  .hour-item:last-child {
+    border-bottom: none;
+  }
+  
+  .hour-item .day {
+    font-weight: 500;
+    color: #4a5568;
+  }
+  
+  .hour-item .hours {
+    color: #718096;
+  }
+  
+  /* Quick Stats */
+  .stat-item {
+    margin-bottom: 15px;
+  }
+  
+  .stat-label {
+    color: #718096;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+  
+  .stat-value {
+    color: #2d3748;
+    font-weight: 700;
+    font-size: 1.2rem;
+    margin-top: 5px;
+  }
+  
+  /* Verification */
+  .verification-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #edf2f7;
+    display: flex;
+    align-items: center;
+  }
+  
+  .verification-item:last-child {
+    border-bottom: none;
+  }
+  
+  .verification-item.verified {
+    color: #38a169;
+  }
+  
+  .verification-item.pending {
+    color: #d69e2e;
+  }
+  
+  /* Appearance */
+  .logo-upload-container {
+    display: flex;
+    align-items: center;
+  }
+  
+  .current-logo {
+    width: 120px;
+    height: 120px;
+    margin-right: 20px;
+    object-fit: cover;
+  }
+  
+  .banner-preview-container {
+    text-align: center;
+  }
+  
+  .banner-preview {
+    border-radius: 8px;
+    max-height: 150px;
+    object-fit: cover;
+  }
+  
+  /* Theme Options */
+  .theme-option {
+    cursor: pointer;
+    text-align: center;
+  }
+  
+  .theme-option.active .theme-preview {
+    border: 3px solid #4c51bf;
+  }
+  
+  .theme-option.active .theme-name {
+    color: #4c51bf;
+    font-weight: 500;
+  }
+  
+  .theme-preview {
+    height: 100px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    transition: all 0.2s;
+  }
+  
+  .theme-name {
+    margin-bottom: 0;
+    color: #718096;
+  }
+  
+  .purple-theme {
+    background: linear-gradient(135deg, #4c51bf 0%, #667eea 100%);
+  }
+  
+  .blue-theme {
+    background: linear-gradient(135deg, #3182ce 0%, #63b3ed 100%);
+  }
+  
+  .green-theme {
+    background: linear-gradient(135deg, #38a169 0%, #68d391 100%);
+  }
+  
+  /* Buttons */
+  .save-settings-btn, .save-theme-btn {
+    border-radius: 8px;
+    padding: 10px 25px;
+    font-weight: 500;
+    margin-top: 20px;
+  }
+  
+  /* Modal */
+  .modal-content {
+    border-radius: 12px;
+  }
+  
+  /* Responsive Adjustments */
+  @media (max-width: 768px) {
+    .shop-logo-container {
+      left: 20px;
+      bottom: -30px;
+    }
+    
+    .shop-logo {
+      width: 100px;
+      height: 100px;
+    }
+    
+    .shop-header {
+      margin-top: 70px;
+    }
+    
+    .logo-upload-container {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    
+    .current-logo {
+      margin-right: 0;
+      margin-bottom: 15px;
+    }
+  }
